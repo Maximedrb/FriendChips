@@ -31,6 +31,7 @@ import com.example.friendschips.fragment.GestionFragment;
 import com.example.friendschips.menu.Menu_App;
 
 import static android.os.StrictMode.setThreadPolicy;
+import static com.example.friendschips.friendschips.BuildConfig.DEBUG;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -51,8 +52,19 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         edtNom = (EditText)findViewById(R.id.etPseudo);
         edtPass = (EditText)findViewById(R.id.etPass);
-        edtNom.setText("Maximedrx");
-        edtPass.setText("a");
+
+        // #If Debug
+        {  edtNom.setText("Maximedrx");
+            edtPass.setText("a");
+        }
+        // #Else
+        {
+
+        }
+        // #EndIf
+
+
+
 
         con = new Connexion();
         //Declaration des variables de connexion
@@ -134,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
                                                        break;
                                                    }else{
 
+                                                       Toast.makeText(MainActivity.this, "Il y a un problème \nlors de la connexion", Toast.LENGTH_SHORT).show();
                                                        Toast.makeText(MainActivity.this, "Il y a un problème \nlors de la connexion", Toast.LENGTH_SHORT).show();
                                                    }
                                                }else{

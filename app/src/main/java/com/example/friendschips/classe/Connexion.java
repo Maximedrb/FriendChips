@@ -129,7 +129,7 @@ public class Connexion {
         }
         catch (SQLException se)
         {
-            Log.e("error here 1 : ", "######################################" + se.getMessage());
+            Log.e("error here 1 :", "######################################" + se.getMessage());
             okDec = false;
         }
         catch (Exception e)

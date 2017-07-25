@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -39,9 +40,8 @@ import static android.os.StrictMode.setThreadPolicy;
  */
 public class Inscription extends AppCompatActivity {
 
-    private Connexion con = new Connexion();
-    private String userName,pass,db,ip;
-    private Utilisateur user = new Utilisateur();
+    private Connexion con ;
+    private Utilisateur user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +60,9 @@ public class Inscription extends AppCompatActivity {
         final EditText etMail = (EditText)findViewById(R.id.etMailInsc);
         final EditText etDate = (EditText)findViewById(R.id.etNaissanceInsc);
 
+        con = new Connexion();
+        user = new Utilisateur();
+
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,28 +73,22 @@ public class Inscription extends AppCompatActivity {
             }
         });
 
-       /* ip = "192.168.0.101:1433";
-        db = "FriendChips";
-        userName = "FCAdmin";
-        pass = "Fr1endCh1ps";
-        con = connectionclass(userName, pass, db, ip);*/
-
         Button btInsciption = (Button)findViewById(R.id.btAddInscription);
 
         btInsciption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 try {
                     if (con.getCon() == null) {
                         Toast.makeText(Inscription.this, "Vérifier votre connexion internet!", Toast.LENGTH_SHORT).show();
                     } else {
-                        System.out.println(etConfMtp.getText().toString() + "###########" + etMtp.getText().toString());
-
                         if (etConfMtp.getText().toString().equals(etMtp.getText().toString())) {
 
-                            user.setCon(con.getCon());
+
                             user = new Utilisateur(etNom.getText().toString(), etPrenom.getText().toString(), etPseudo.getText().toString()
                                     , etMail.getText().toString(), etMtp.getText().toString(), etDate.getText().toString());
+                            user.setCon(con.getCon());
 
                             if (user.AjouterUtilisateur(user)) {
                                 Toast.makeText(Inscription.this, "Inscription réussit!", Toast.LENGTH_SHORT).show();
@@ -129,33 +126,4 @@ public class Inscription extends AppCompatActivity {
 
 
 
-    @SuppressLint("NewApi")
-    public Connection connectionclass(String user, String password, String database, String server)
-    {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        setThreadPolicy(policy);
-        Connection connection = null;
-        String ConnURL = null;
-        try
-        {
-            Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            ConnURL = "jdbc:jtds:sqlserver://" + server + ";"
-                    + "databaseName=" + database + ";user=" + user + ";password="
-                    + password + ";";
-            connection = DriverManager.getConnection(ConnURL);
-        }
-        catch (SQLException se)
-        {
-            Log.e("error here 1 : ", "######################################" + se.getMessage());
-        }
-        catch (ClassNotFoundException e)
-        {
-            Log.e("error here 2 : ", e.getMessage());
-        }
-        catch (Exception e)
-        {
-            Log.e("error here 3 : ", e.getMessage());
-        }
-        return connection;
-    }
 }

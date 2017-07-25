@@ -18,7 +18,7 @@ public class Utilisateur  implements Parcelable{
 
     private String nom,prenom,pseudo,mail,mtp,dateNaissance;
     private Boolean actif ;
-
+    private Connection con;
 
 
     private int idUtilisateur;
@@ -31,7 +31,7 @@ public class Utilisateur  implements Parcelable{
         this.con = con;
     }
 
-    private Connection con;
+
 
 
 
