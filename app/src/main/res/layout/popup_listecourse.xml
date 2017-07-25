@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:text="Créer votre \nListe de course"
+        android:textSize="20dp"
+        android:layout_marginBottom="20dp" />
+
+    <EditText
+        android:id="@+id/etNomElmt"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:hint="Element"
+        android:layout_gravity="top|left" />
+
+
+    <Button
+        android:id="@+id/btAddElmt"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:background="@drawable/btmodifprofil"
+        android:text="+"
+        android:textColor="#ffffff"
+        android:layout_gravity="top|right"
+        android:layout_marginTop="-50dp"
+        android:layout_marginRight="10dp" />
+
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:id="@+id/listeElmt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:text="Quantité - nom element" />
+
+
+
+        </LinearLayout>
+
+        </ScrollView>
+
+
+</LinearLayout>

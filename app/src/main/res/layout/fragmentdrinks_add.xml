@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.friendschips.fragment.AddDrinksFragment"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#366ac4"
+    android:padding="10dp"
+    android:layout_marginTop="128dp"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom de \nl&apos;évènement:"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:id="@+id/etNomEvtD"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:background="#ffffff"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="-43dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date:"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Début :"
+            android:textColor="#ffffff"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:id="@+id/edtDateDebutD"
+            android:layout_width="110dp"
+            android:layout_height="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textColorHint="@color/colorPrimary"
+            android:background="#ffffff"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="-17dp"
+            android:drawableRight="@drawable/calendar"/>
+        <EditText
+            android:id="@+id/edtHeureDebutD"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textColorHint="@color/colorPrimary"
+            android:background="#ffffff"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="-20dp"
+            android:drawableRight="@drawable/time"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:text="Fin :"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:id="@+id/edtDateFinD"
+            android:layout_width="110dp"
+            android:layout_height="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textColorHint="@color/colorPrimary"
+            android:background="#ffffff"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="-17dp"
+            android:drawableRight="@drawable/calendar"/>
+        <EditText
+            android:id="@+id/edtHeureFinD"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textColorHint="@color/colorPrimary"
+            android:background="#ffffff"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="-20dp"
+            android:drawableRight="@drawable/time"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:text="Message:"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp" />
+
+        <EditText
+            android:id="@+id/etMessageEvtD"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:inputType="textMultiLine"
+            android:gravity="top"
+            android:textColorHint="#ffffff"
+            android:background="#ffffff"/>
+
+
+        <CheckBox
+            android:id="@+id/cbCourseAFaire"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#ffffff"
+            android:text="Course à faire"
+            android:layout_marginTop="20dp"
+            android:buttonTint="#ffffff"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:text="Quantité"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="left" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:text="Libellé"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="-25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_horizontal" />
+
+
+        <LinearLayout
+            android:id="@+id/listCourse"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100dp">
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btAddDrink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btadddrink"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:text="Créer"/>
+
+    </LinearLayout>
+</ScrollView>
+</RelativeLayout>

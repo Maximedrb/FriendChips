@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">FriendsChips</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- values elements page connexion -->
+
+    <string name="Connexion">Connexion</string>
+    <string name="EntrerNom">Nom utilisateur</string>
+    <string name="EntrerMtp">Mot de passe</string>
+
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="continuer">GO</string>
+
+    <!-- Page food -->
+    <string name="slide_1_title">On se casse le ventre?</string>
+    <string name="slide_1_desc">Organise un repas avec tes amis!</string>
+
+    <!-- fragment food -->
+    <string name="ajouter">Ajouter</string>
+    <string name="gestion">Gestion</string>
+    <!-- popup liste Course-->
+
+    <string name="Ok">Ok</string>
+    <string name="Annuler">Annuler</string>
+
+
+
+    <!-- ####################################################-->
+    <string name="slide_2_title">Happy Birthday!</string>
+    <string name="slide_2_desc">Organise ton anniversaire ou celui d\'un ami!</string>
+
+    <string name="slide_3_title">Tout en canon!</string>
+    <string name="slide_3_desc">Organise un apéro avec tes amis pour partager un bon moment!</string>
+
+    <string name="slide_4_title">Amis</string>
+    <string name="slide_4_desc">Ajoute ou supprime les personnes qui le mérite</string>
+
+
+</resources>
