@@ -32,7 +32,7 @@ public class BirthdayActivity extends AppCompatActivity {
             R.drawable.ic_tab_call};
     private GestionFragment gestionBirth = new GestionFragment();
 
-    private GestionFragment gestion = new GestionFragment();
+
     private Utilisateur user = new Utilisateur();
 
     @Override

@@ -189,7 +189,7 @@ public class AddBirthdayFragment extends Fragment {
                 Evenement newEvnt = new Evenement(user.getIdUtilisateur(),etNomEvt.getText().toString(),edtDateDebut.getText().toString()+"_"+edtHeureDebut.getText().toString(),
                         edtDateFin.getText().toString()+"_"+ edtHeureDebut.getText().toString(),etMessageEvt.getText().toString());
 
-                event.AjouterEvenement("Birth",newEvnt);
+                event.AjouterEvenement("Birth",newEvnt,Color.parseColor("#FF20D1BA"));
 
                 ListView listItem = (ListView) viewPopInviteFriend.findViewById(R.id.listInviteFriend);
                 List<ItemFriend> items = genererItems();

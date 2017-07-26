@@ -5,14 +5,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/holo_blue_bright"
-    android:padding="10dp">
+    android:padding="10dp" tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerVertical="true"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:id="@+id/linearLayout2">
 
         <TextView
             android:layout_width="match_parent"
@@ -93,4 +94,12 @@
 
 
     </LinearLayout>
+    <!--<com.facebook.share.widget.ShareButton
+        android:id="@+id/fb_share_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_centerHorizontal="true" />-->
 </RelativeLayout>

@@ -106,9 +106,6 @@ public class FoodActivity extends AppCompatActivity {
             @Override
             public void onPageScrollStateChanged(int state) {
 
-
-
-
             }
         });
 

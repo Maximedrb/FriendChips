@@ -326,7 +326,7 @@ public class AddFoodFragment extends Fragment
               Evenement newEvnt = new Evenement(user.getIdUtilisateur(),etNomEvtFood.getText().toString(),edtDateDebut.getText().toString()+"_"+edtHeureDebut.getText().toString(),
                       edtDateFin.getText().toString()+"_"+ edtHeureDebut.getText().toString(),etMessageEvt.getText().toString());
 
-              event.AjouterEvenement("Food",newEvnt);
+              event.AjouterEvenement("Food",newEvnt,Color.parseColor("#FFF54C73"));
 
           }
         }).setNegativeButton(R.string.Annuler, new DialogInterface.OnClickListener() {

@@ -121,14 +121,14 @@ public class Evenement {
 
     }
 
-    public boolean AjouterEvenement(String _typeEvnt, Evenement _evnt)
+    public boolean AjouterEvenement(String _typeEvnt, Evenement _evnt,int _colorEvnt)
     {
         boolean okInsert = false;
 
         try{
 
-            String query = "insert into Evenement(idUtilisateurEvnt,nomEvnt, dateDebut, dateFin,messageEvnt) values ("+_evnt.getIdUtilisateurEvnt()+",'"
-                    + _evnt.getNom() + "','" + _evnt.getDateDebut() + "','" + _evnt.getDateFin() + "','" + _evnt.getMessage() + "');\n";
+            String query = "insert into Evenement(idUtilisateurEvnt,nomEvnt, dateDebut, dateFin,messageEvnt, avatar) values ("+_evnt.getIdUtilisateurEvnt()+",'"
+                    + _evnt.getNom() + "','" + _evnt.getDateDebut() + "','" + _evnt.getDateFin() + "','" + _evnt.getMessage() + "','"+_colorEvnt+"');\n";
 
             Statement stmt = con.createStatement();
             stmt.executeUpdate(query);
@@ -159,7 +159,7 @@ public class Evenement {
 
             stmt.executeUpdate(query);
 
-            con.close();
+
 
             return okInsert = true;
 
@@ -179,22 +179,24 @@ public class Evenement {
 
         try {
 
-            String query = "Select nomEvnt, dateDebut, dateFin from Evenement ;";
+            String query = "Select nomEvnt, dateDebut, dateFin , avatar from Evenement ;";
+
+
 
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()) {
-                evnts.add(new Evenement(Color.parseColor("#FFF54C73"),rs.getString(1), rs.getString(2)+"_"+rs.getString(3)));
+
+                evnts.add(new Evenement(rs.getInt(4),rs.getString(1), rs.getString(2)+"_"+rs.getString(3)));
             }
 
-            con.close();
 
 
         }catch (SQLException se)
         {
 
-            Log.e("error here 1 : ", "######################################" + se.getMessage());
+            Log.e("error here 1 : ******* ", "######################################" + se.getMessage());
         }
         return evnts ;
     }

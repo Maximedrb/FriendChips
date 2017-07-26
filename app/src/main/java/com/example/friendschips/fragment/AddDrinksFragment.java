@@ -188,7 +188,7 @@ public class AddDrinksFragment extends Fragment {
                 Evenement newEvnt = new Evenement(user.getIdUtilisateur(),etNomEvt.getText().toString(),edtDateDebut.getText().toString()+"_"+edtHeureDebut.getText().toString(),
                         edtDateFin.getText().toString()+"_"+ edtHeureDebut.getText().toString(),etMessageEvt.getText().toString());
 
-                event.AjouterEvenement("Drink",newEvnt);
+                event.AjouterEvenement("Drink",newEvnt,Color.parseColor("#FF366AC4"));
 
                 ListView listItem = (ListView) viewPopInviteFriend.findViewById(R.id.listInviteFriend);
                 List<ItemFriend> items = genererItems();

@@ -2,6 +2,9 @@
     <string name="app_name">FriendsChips</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Facebook -->
+    <string name="facebook_app_id">125183304762028</string>
+
     <!-- values elements page connexion -->
 
     <string name="Connexion">Connexion</string>

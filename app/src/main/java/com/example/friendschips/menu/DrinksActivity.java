@@ -44,7 +44,7 @@ public class DrinksActivity extends AppCompatActivity {
         Intent intent = getIntent();
         user = intent.getExtras().getParcelable("userConnecter");
 
-        gestionDrinks.setColorBackScroll("#366ac4");
+        gestionDrinks.setColorBackScroll("#FF366AC4");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -61,6 +61,31 @@ public class DrinksActivity extends AppCompatActivity {
         });
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                if(position == 1)
+                {
+                    //c'est ici qu'il faut  poser la methode initListView.
+
+                    gestionDrinks.InitListEvent(gestionDrinks.getView());
+                }
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
         setupViewPager(viewPager);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);

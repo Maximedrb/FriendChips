@@ -54,9 +54,9 @@ public class GestionFragment extends Fragment{
 
     private List<Evenement> items ;
 
-    private Connexion con = new Connexion();
-    private Evenement event = new Evenement();
-
+    private Connexion con;
+    private Evenement event;
+    private  ItemEventAdapter adapter;
 
 
 
@@ -69,7 +69,7 @@ public class GestionFragment extends Fragment{
     }
 
     private String colorBackScroll ;
-
+    private  ListView listItem;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +81,9 @@ public class GestionFragment extends Fragment{
         // Inflate the layout for this fragment
          View viewGestion =  inflater.inflate(R.layout.fragment_gestion, container, false);
 
+        con = new Connexion();
+        event = new Evenement();
+
         event.setCon(con.getCon());
 
 
@@ -88,14 +91,13 @@ public class GestionFragment extends Fragment{
 
             rlGestion.setBackgroundColor(Color.parseColor(colorBackScroll));
 
-        ListView listItem = (ListView)viewGestion.findViewById(R.id.listItemEvent);
+        listItem = (ListView)viewGestion.findViewById(R.id.listItemEvent);
 
         //items = InitListEvent(viewGestion);
         items = event.ListeEvenement();
 
-        ItemEventAdapter adapter  = new ItemEventAdapter(viewGestion.getContext(), items);
-        listItem.setAdapter(adapter);
-
+         adapter  = new ItemEventAdapter(viewGestion.getContext(), items);
+         listItem.setAdapter(adapter);
 
 
         return viewGestion;
@@ -103,16 +105,12 @@ public class GestionFragment extends Fragment{
     }
 
 
-   public List<Evenement> InitListEvent(View view){
+   public void InitListEvent(View view){
+
+       adapter  = new ItemEventAdapter(view.getContext(), event.ListeEvenement());
+       listItem.setAdapter(adapter);
 
 
-        /*List<Evenement> items = new ArrayList<>();
-        items.add(new Evenement(Color.BLACK, "Florent", "Mon premier tweet !"));
-        items.add(new Evenement(Color.BLUE, "Kevin", "C'est ici que ça se passe !"));
-        items.add(new Evenement(Color.GREEN, "Logan", "Que c'est beau..."));
-        items.add(new Evenement(Color.RED, "Mathieu", "Il est quelle heure ??"));
-        items.add(new Evenement(Color.GRAY, "Willy", "On y est presque"));*/
-        return event.ListeEvenement();
     }
 
 

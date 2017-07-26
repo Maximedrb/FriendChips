@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AlertDialog;
@@ -22,16 +23,22 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Calendar;
+
+
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareButton;
+
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 
 import com.example.friendschips.classe.Connexion;
 import com.example.friendschips.classe.Utilisateur;
-import com.example.friendschips.fragment.GestionFragment;
+
 import com.example.friendschips.menu.Menu_App;
 
 import static android.os.StrictMode.setThreadPolicy;
-import static com.example.friendschips.friendschips.BuildConfig.DEBUG;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -43,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Utilisateur user = new Utilisateur();
     private Connexion con;
+    private ShareButton shareButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +58,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+       // shareButton = (ShareButton) findViewById(R.id.fb_share_button);
+
+        /**
+         *  Dès que l'utilisateur clique sur notre ShareButton, cela
+         *  lui affiche une vue qui lui permet de partager le lien
+         *  qu'on a mis <img draggable="false" class="emoji" alt="🙂" src="https://s.w.org/images/core/emoji/2.3/svg/1f642.svg" scale="0">
+
+        ShareLinkContent content = new ShareLinkContent.Builder()
+                .setContentUrl(Uri.parse("http://www.android-pour-tous.com/"))
+                .build();
+
+        shareButton.setShareContent(content);*/
+
+
         edtNom = (EditText)findViewById(R.id.etPseudo);
         edtPass = (EditText)findViewById(R.id.etPass);
 
