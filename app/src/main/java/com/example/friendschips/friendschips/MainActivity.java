@@ -55,24 +55,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-       // shareButton = (ShareButton) findViewById(R.id.fb_share_button);
-
-        /**
-         *  Dès que l'utilisateur clique sur notre ShareButton, cela
-         *  lui affiche une vue qui lui permet de partager le lien
-         *  qu'on a mis <img draggable="false" class="emoji" alt="🙂" src="https://s.w.org/images/core/emoji/2.3/svg/1f642.svg" scale="0">
-
-        ShareLinkContent content = new ShareLinkContent.Builder()
-                .setContentUrl(Uri.parse("http://www.android-pour-tous.com/"))
-                .build();
-
-        shareButton.setShareContent(content);*/
-
 
         edtNom = (EditText)findViewById(R.id.etPseudo);
         edtPass = (EditText)findViewById(R.id.etPass);

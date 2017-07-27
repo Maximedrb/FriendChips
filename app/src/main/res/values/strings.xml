@@ -4,6 +4,7 @@
 
     <!-- Facebook -->
     <string name="facebook_app_id">125183304762028</string>
+    <string name="fb_login_protocol_scheme">fb125183304762028</string>
 
     <!-- values elements page connexion -->
 

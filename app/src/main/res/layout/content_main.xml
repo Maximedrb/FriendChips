@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@android:color/holo_blue_bright"
-    android:padding="10dp" tools:context=".MainActivity">
+    android:padding="10dp"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,18 +66,27 @@
             android:id="@+id/btConnexion"
             android:text="Connexion" />
 
-       <!-- <Button
-            android:layout_width="match_parent"
+       <!-- <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/btconnect"
-            android:textColor="#ffffff"
-
+            android:radius="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dip"
+            android:layout_marginBottom="30dp"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:padding="10dp"/>-->
+
+        <com.facebook.login.widget.LoginButton
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dip"
+            android:layout_marginBottom="30dp"
+            android:textStyle="bold"
             android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/btInscritption"
-            android:text="Inscription" />-->
+            facebook:com_facebook_confirm_logout="false"
+            facebook:com_facebook_tooltip_mode="never_display"
+            />
 
                 <Button
             android:id="@+id/btInscritption"
@@ -94,12 +105,6 @@
 
 
     </LinearLayout>
-    <!--<com.facebook.share.widget.ShareButton
-        android:id="@+id/fb_share_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_centerHorizontal="true" />-->
+
+
 </RelativeLayout>
