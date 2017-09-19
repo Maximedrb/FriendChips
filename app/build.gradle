@@ -26,5 +26,5 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
     compile files('libs/jtds-1.2.7.jar')
-    compile 'com.facebook.android:facebook-android-sdk:4.1.0'
+   // compile 'com.facebook.android:facebook-android-sdk:4.1.0'
 }

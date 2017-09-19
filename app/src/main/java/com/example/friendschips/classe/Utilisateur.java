@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by MaximeDrx on 12/10/2016.
@@ -125,6 +127,16 @@ public class Utilisateur  implements Parcelable{
         this.dateNaissance = _date;
     }
 
+    public Utilisateur(int _idUtilisateur, String _nom,String _prenom, String _pseudo)
+    {
+        super();
+        this.idUtilisateur = _idUtilisateur;
+        this.nom = _nom;
+        this.prenom = _prenom;
+        this.pseudo = _pseudo;
+
+    }
+
     @Override
     public int describeContents()
     {
@@ -215,4 +227,34 @@ public class Utilisateur  implements Parcelable{
 
         return okInsert;
     }
+
+    public List<Utilisateur> ListeUtilisateur()
+    {
+        List<Utilisateur> users = new ArrayList<>();
+
+        try {
+
+            String query = "Select idUtilisateur, nom, prenom, pseudo from Utilisateur ;";
+
+
+
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+
+                users.add(new Utilisateur(rs.getInt(1),rs.getString(2), rs.getString(3),rs.getString(4)));
+            }
+
+
+
+        }catch (SQLException se)
+        {
+
+            Log.e("error here 1 : ******* ", "######################################" + se.getMessage());
+        }
+        return users ;
+    }
+
+
 }

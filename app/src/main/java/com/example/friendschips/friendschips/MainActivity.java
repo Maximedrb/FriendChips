@@ -25,11 +25,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-import com.facebook.share.model.ShareLinkContent;
+/*import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareButton;
 
 import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
+import com.facebook.appevents.AppEventsLogger;*/
 
 
 import com.example.friendschips.classe.Connexion;
@@ -50,13 +50,13 @@ public class MainActivity extends AppCompatActivity {
 
     private Utilisateur user = new Utilisateur();
     private Connexion con;
-    private ShareButton shareButton;
+    //private ShareButton shareButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(this);
+      /*  FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);*/
 
         setContentView(R.layout.activity_main);
 

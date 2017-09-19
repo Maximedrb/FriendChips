@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:facebook="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@android:color/holo_blue_bright"
     android:padding="10dp"
@@ -77,18 +76,7 @@
             android:textStyle="bold"
             android:padding="10dp"/>-->
 
-        <com.facebook.login.widget.LoginButton
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dip"
-            android:layout_marginBottom="30dp"
-            android:textStyle="bold"
-            android:padding="10dp"
-            facebook:com_facebook_confirm_logout="false"
-            facebook:com_facebook_tooltip_mode="never_display"
-            />
-
-                <Button
+        <Button
             android:id="@+id/btInscritption"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

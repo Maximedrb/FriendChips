@@ -193,7 +193,7 @@ public class AddDrinksFragment extends Fragment {
                 ListView listItem = (ListView) viewPopInviteFriend.findViewById(R.id.listInviteFriend);
                 List<ItemFriend> items = genererItems();
 
-                ItemFriendAdapter adapter = new ItemFriendAdapter(viewPopInviteFriend.getContext(), true, items);
+               ItemFriendAdapter adapter = new ItemFriendAdapter(viewPopInviteFriend.getContext(), true, items);
                 listItem.setAdapter(adapter);
 
 
