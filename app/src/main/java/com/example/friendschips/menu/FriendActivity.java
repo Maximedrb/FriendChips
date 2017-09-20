@@ -29,6 +29,7 @@ import com.example.friendschips.fragment.AddFoodFragment;
 import com.example.friendschips.fragment.AddFriendFragment;
 import com.example.friendschips.fragment.GestionFragment;
 import com.example.friendschips.fragment.GestionFriendFragment;
+import com.example.friendschips.fragment.GestionUtilisateursFragment;
 import com.example.friendschips.fragment.ProfilFragment;
 import com.example.friendschips.friendschips.R;
 
@@ -42,7 +43,8 @@ public class FriendActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private int[] tabIcons = {
             R.drawable.ic_tab_favourite,
-            R.drawable.ic_tab_call
+            R.drawable.ic_tab_call,
+            R.drawable.ic_tab_contacts
     };
 
     private GestionFragment gestion = new GestionFragment();
@@ -79,10 +81,6 @@ public class FriendActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
 
-
-
-
-
     }
 
     @Override
@@ -97,12 +95,14 @@ public class FriendActivity extends AppCompatActivity {
     private void setupTabIcons() {
         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
     }
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new ProfilFragment(), "Profil");
         adapter.addFrag(new GestionFriendFragment(), "Vos amis");
+        adapter.addFrag(new GestionUtilisateursFragment(),"...");
         viewPager.setAdapter(adapter);
     }
 

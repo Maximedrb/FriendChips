@@ -6,7 +6,7 @@
     android:padding="10dp">
 
     <ImageView
-        android:id="@+id/itemAvatarFriend"
+        android:id="@+id/itemAvatarUtilisateur"
         android:layout_width="50dp"
         android:layout_height="50dp"
         tools:background="#AAA"
@@ -14,23 +14,28 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/itemPseudo"
+        android:id="@+id/itemPseudoUtilisateur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/itemAvatarFriend"
-        android:layout_alignTop="@+id/itemAvatarFriend"
+        android:layout_toRightOf="@+id/itemAvatarUtilisateur"
+        android:layout_alignTop="@+id/itemAvatarUtilisateur"
         android:textStyle="bold"
         tools:text="Pseudo" />
 
-    <CheckBox
-        android:id="@+id/cbInvite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/itemPseudo"
+    <Button
+        android:id="@+id/btAjoutUtilisateur"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:background="@drawable/btmodifprofil"
+        android:text="+"
+        android:textColor="#ffffff"
+        android:layout_gravity="top|right"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/itemPseudoUtilisateur"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="45dp"
-        />
+        android:layout_marginEnd="13dp"
+        android:layout_alignBottom="@+id/itemAvatarUtilisateur" />
 
 </RelativeLayout>

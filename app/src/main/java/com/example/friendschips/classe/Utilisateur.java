@@ -22,6 +22,7 @@ public class Utilisateur  implements Parcelable{
     private Boolean actif ;
     private Connection con;
 
+    private int itemAvatar;
 
     private int idUtilisateur;
 
@@ -102,6 +103,20 @@ public class Utilisateur  implements Parcelable{
 
     public void setActif(Boolean actif) {
         this.actif = actif;
+    }
+
+    public int getItemAvatar() {
+        return itemAvatar;
+    }
+
+    public void setItemAvatar(int itemAvatar) {
+        this.itemAvatar = itemAvatar;
+    }
+
+    public Utilisateur(String _pseudo, int _itemAvatar)
+    {
+        this.pseudo = _pseudo;
+       this.itemAvatar = _itemAvatar;
     }
 
     public Utilisateur(int _idUtilisateur,String _nom,String _prenom, String _pseudo, String _mail, String _mtp,String _date)

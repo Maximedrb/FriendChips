@@ -19,12 +19,12 @@ import java.util.List;
  */
 public class ItemUtilisateurAdapter extends ArrayAdapter<Utilisateur> {
 
-    private boolean invite;
+
 
     //tweets est la liste des models à afficher
-    public ItemUtilisateurAdapter(Context context, boolean _invite, List<Utilisateur> items) {
+    public ItemUtilisateurAdapter(Context context, List<Utilisateur> items) {
         super(context, 0, items);
-        invite = _invite;
+
     }
 
     @Override
@@ -38,8 +38,8 @@ public class ItemUtilisateurAdapter extends ArrayAdapter<Utilisateur> {
         if(viewHolder == null){
 
             viewHolder = new ItemViewHolder();
-            viewHolder.itemPseudo = (TextView) convertView.findViewById(R.id.itemPseudo);
-            viewHolder.itemAvatar = (ImageView) convertView.findViewById(R.id.itemAvatarFriend);
+            viewHolder.itemPseudo = (TextView) convertView.findViewById(R.id.itemPseudoUtilisateur);
+            viewHolder.itemAvatar = (ImageView) convertView.findViewById(R.id.itemAvatarUtilisateur);
 
             convertView.setTag(viewHolder);
         }
@@ -49,7 +49,7 @@ public class ItemUtilisateurAdapter extends ArrayAdapter<Utilisateur> {
 
         //il ne reste plus qu'à remplir notre vue
         viewHolder.itemPseudo.setText(item.getPseudo());
-        //viewHolder.itemAvatar.setImageDrawable(new ColorDrawable(item.getItemAvatar()));
+        viewHolder.itemAvatar.setImageDrawable(new ColorDrawable(item.getItemAvatar()));
 
         return convertView;
     }
@@ -57,6 +57,6 @@ public class ItemUtilisateurAdapter extends ArrayAdapter<Utilisateur> {
     private class ItemViewHolder{
         public TextView itemPseudo;
         public ImageView itemAvatar;
-        public CheckBox itemInvite;
+
     }
 }
