@@ -30,6 +30,7 @@ import com.example.friendschips.classe.ItemEvent;
 import com.example.friendschips.classe.Utilisateur;
 import com.example.friendschips.fragment.AddFoodFragment;
 import com.example.friendschips.fragment.GestionFragment;
+import com.example.friendschips.friendschips.MainActivity;
 import com.example.friendschips.friendschips.R;
 
 /**
@@ -76,8 +77,11 @@ public class FoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(FoodActivity.this, Menu_App.class);
+                i.putExtra("userConnecter",user);
                 startActivity(i);
                 finish();
+
+
             }
         });
 
@@ -110,8 +114,6 @@ public class FoodActivity extends AppCompatActivity {
         });
 
         setupViewPager(viewPager);
-
-
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);

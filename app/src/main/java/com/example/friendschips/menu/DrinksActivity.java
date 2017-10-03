@@ -55,6 +55,7 @@ public class DrinksActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(DrinksActivity.this, Menu_App.class);
+                i.putExtra("userConnecter",user);
                 startActivity(i);
                 finish();
             }

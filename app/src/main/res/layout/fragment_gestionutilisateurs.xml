@@ -4,7 +4,8 @@
     tools:context="com.example.friendschips.fragment.GestionFragment"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/bg_screen4">
+    android:background="@color/bg_screen4"
+    >
 
     <EditText
         android:id="@+id/etRecherche"

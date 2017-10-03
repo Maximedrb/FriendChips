@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.friendschips.friendschips.R;
-import com.github.siyamed.shapeimageview.RoundedImageView;
+//import com.github.siyamed.shapeimageview.RoundedImageView;
 
 import java.util.List;
 

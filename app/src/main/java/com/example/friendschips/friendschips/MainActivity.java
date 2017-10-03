@@ -97,13 +97,15 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         // Change below query according to your own database.
 
-                        String query = "select * from Utilisateur  where pseudo = '" + edtNom.getText().toString() + "' and mtp = '" + edtPass.getText().toString() + "' ; ";
+                        String query = "select idUtilisateur,nom,prenom,pseudo,mtp,photoProfil,mail,dateNaissance from Utilisateur  where pseudo = '" + edtNom.getText().toString() + "' and mtp = '" + edtPass.getText().toString() + "' ; ";
                         Statement stmt = con.getCon().createStatement();
                         ResultSet rs = stmt.executeQuery(query);
 
                         if (rs.next()) {
 
-                            user = new Utilisateur(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
+                            System.out.println(rs.getString(6));
+
+                            user = new Utilisateur(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getObject(6),rs.getString(7),rs.getString(8));
 
                             query = "select * from Connexion  where idUtilisateur = " + user.getIdUtilisateur() + "; ";
 

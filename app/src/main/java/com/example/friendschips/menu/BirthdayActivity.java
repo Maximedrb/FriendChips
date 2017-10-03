@@ -56,6 +56,7 @@ public class BirthdayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(BirthdayActivity.this, Menu_App.class);
+                i.putExtra("userConnecter",user);
                 startActivity(i);
                 finish();
             }

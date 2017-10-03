@@ -35,7 +35,7 @@
             android:textColorHint="#ffffff"
             android:background="#5d5d5d"
             android:padding="10dp"
-            android:hint="USER ID"
+            android:hint="Pseudo"
             android:textSize="20sp"
             android:id="@+id/etPseudo" />
 
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:hint="PASSWORD"
+            android:hint="Mot de passe"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
             android:textStyle="bold"

@@ -6,10 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.example.friendschips.classe.Connexion;
+import com.example.friendschips.classe.ItemEventAdapter;
 import com.example.friendschips.classe.ItemFriend;
 import com.example.friendschips.classe.ItemFriendAdapter;
 import com.example.friendschips.classe.ItemUtilisateurAdapter;
@@ -19,6 +21,8 @@ import com.example.friendschips.friendschips.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.friendschips.friendschips.R.id.view;
+
 
 /**
  * Created by MaximeDrx on 06/10/2016.
@@ -26,10 +30,20 @@ import java.util.List;
 public class GestionUtilisateursFragment extends Fragment{
 
     private RelativeLayout rlGestion;
-    private List<Utilisateur> items ;
 
+    public List<Utilisateur> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Utilisateur> items) {
+        this.items = items;
+    }
+
+    private List<Utilisateur> items ;
+    private  ListView listItem;
     private Connexion con;
     private Utilisateur user;
+    private  ItemUtilisateurAdapter adapter;
 
 
     @Override
@@ -43,14 +57,18 @@ public class GestionUtilisateursFragment extends Fragment{
         // Inflate the layout for this fragment
         View viewGestion =  inflater.inflate(R.layout.fragment_gestionutilisateurs, container, false);
 
+        con = new Connexion();
+        user = new Utilisateur();
+
+        user.setCon(con.getCon());
 
 
-        ListView listItem = (ListView)viewGestion.findViewById(R.id.listeItemUtilisateur);
+         listItem = (ListView)viewGestion.findViewById(R.id.listeItemUtilisateur);
 
-        List<Utilisateur> items = genererItems();
-        items = genererItems();
+        //items = genererItems(viewGestion);
+        items = user.ListeUtilisateur();
 
-        ItemUtilisateurAdapter adapter  = new ItemUtilisateurAdapter(viewGestion.getContext(), items);
+         adapter  = new ItemUtilisateurAdapter(viewGestion.getContext(), items);
         listItem.setAdapter(adapter);
 
 
@@ -62,13 +80,13 @@ public class GestionUtilisateursFragment extends Fragment{
 
     }
 
-    private List<Utilisateur> genererItems(){
-        List<Utilisateur> items = new ArrayList<Utilisateur>();
-        items.add(new Utilisateur("Maxime",Color.BLACK));
-        items.add(new Utilisateur("Kevin",Color.BLUE));
-        items.add(new Utilisateur("Logan",Color.GREEN));
 
-        return items;
+    public void InitListEvent(View view){
+
+        adapter  = new ItemUtilisateurAdapter(view.getContext(), user.ListeUtilisateur());
+        listItem.setAdapter(adapter);
+
+
     }
 
 }

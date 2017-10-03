@@ -47,7 +47,8 @@ public class FriendActivity extends AppCompatActivity {
             R.drawable.ic_tab_contacts
     };
 
-    private GestionFragment gestion = new GestionFragment();
+    private GestionUtilisateursFragment gestionUtilisateurs = new GestionUtilisateursFragment();
+    private GestionFriendFragment gesstionFriend = new GestionFriendFragment();
     private Utilisateur user = new Utilisateur();
 
 
@@ -68,6 +69,7 @@ public class FriendActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(FriendActivity.this, Menu_App.class);
+                i.putExtra("userConnecter",user);
                 startActivity(i);
                 finish();
             }
@@ -75,6 +77,34 @@ public class FriendActivity extends AppCompatActivity {
 
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                if(position == 1)
+                {
+                    //c'est ici qu'il faut  poser la methode initListView.
+                   // gestion.InitListEvent(gestion.getView());
+
+                }else if(position == 2)
+                {
+                    gestionUtilisateurs.InitListEvent(gestionUtilisateurs.getView());
+                }
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
+
         setupViewPager(viewPager);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);

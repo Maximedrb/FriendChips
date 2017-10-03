@@ -37,8 +37,8 @@
     <string name="slide_3_title">Tout en canon!</string>
     <string name="slide_3_desc">Organise un apéro avec tes amis pour partager un bon moment!</string>
 
-    <string name="slide_4_title">Amis</string>
-    <string name="slide_4_desc">Ajoute ou supprime les personnes qui le mérite</string>
+    <string name="slide_4_title">Profil &amp; Amis</string>
+    <string name="slide_4_desc">Gérer vos information personnel \n ainsi que les personnes de votre entourage</string>
 
 
 </resources>
