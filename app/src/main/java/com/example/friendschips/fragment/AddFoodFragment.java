@@ -89,7 +89,7 @@ public class AddFoodFragment extends Fragment
     final EditText etMessageEvt = (EditText)view.findViewById(R.id.etMessageEvtFood);
     final AlertDialog.Builder alertDialog = new AlertDialog.Builder(view.getContext());
 
-
+      user.setCon(con.getCon());
       event.setCon(con.getCon());
 
     cbCourseAFaire.setOnClickListener(new View.OnClickListener() {
@@ -314,7 +314,7 @@ public class AddFoodFragment extends Fragment
 
 
         ListView listItem = (ListView)viewPopInviteFriend.findViewById(R.id.listInviteFriend);
-        List<ItemFriend> items = genererItems();
+        List<Utilisateur> items = user.ListeAmis(String.valueOf(user.getIdUtilisateur()));
 
         ItemFriendAdapter adapter = new ItemFriendAdapter(viewPopInviteFriend.getContext(),true, items);
         listItem.setAdapter(adapter);

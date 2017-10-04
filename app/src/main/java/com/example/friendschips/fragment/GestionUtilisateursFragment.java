@@ -1,5 +1,6 @@
 package com.example.friendschips.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -58,7 +59,8 @@ public class GestionUtilisateursFragment extends Fragment{
         View viewGestion =  inflater.inflate(R.layout.fragment_gestionutilisateurs, container, false);
 
         con = new Connexion();
-        user = new Utilisateur();
+        Intent i = getActivity().getIntent();
+        user = i.getExtras().getParcelable("userConnecter");
 
         user.setCon(con.getCon());
 
@@ -66,7 +68,7 @@ public class GestionUtilisateursFragment extends Fragment{
          listItem = (ListView)viewGestion.findViewById(R.id.listeItemUtilisateur);
 
         //items = genererItems(viewGestion);
-        items = user.ListeUtilisateur();
+        items = user.ListeUtilisateur(String.valueOf(user.getIdUtilisateur()));
 
          adapter  = new ItemUtilisateurAdapter(viewGestion.getContext(), items);
         listItem.setAdapter(adapter);
@@ -81,12 +83,12 @@ public class GestionUtilisateursFragment extends Fragment{
     }
 
 
-    public void InitListEvent(View view){
+  /*  public void InitListEvent(View view){
 
         adapter  = new ItemUtilisateurAdapter(view.getContext(), user.ListeUtilisateur());
         listItem.setAdapter(adapter);
 
 
-    }
+    }*/
 
 }

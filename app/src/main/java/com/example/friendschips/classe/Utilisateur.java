@@ -26,11 +26,15 @@ public class Utilisateur  implements Parcelable{
     private String dateNaissance;
 
 
-    private String avatar;
+    private String photoProfil;
+
+
+
+    private boolean itemInvite;
     private Boolean actif ;
     private Connection con;
 
-    private int itemAvatar;
+
 
     private int idUtilisateur;
 
@@ -101,8 +105,8 @@ public class Utilisateur  implements Parcelable{
         return dateNaissance;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public String getPhotoProfil() {
+        return photoProfil;
     }
 
     public void setDateNaissance(String dateNaissance) {
@@ -116,59 +120,60 @@ public class Utilisateur  implements Parcelable{
     public void setActif(Boolean actif) {
         this.actif = actif;
     }
-
-    public int getItemAvatar() {
-        return itemAvatar;
+    public boolean isItemInvite() {
+        return itemInvite;
     }
 
-    public void setItemAvatar(int itemAvatar) {
-        this.itemAvatar = itemAvatar;
+    public void setItemInvite(boolean itemInvite) {
+        this.itemInvite = itemInvite;
     }
 
 
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+
+    public void setPhotoProfil(String avatar) {
+        this.photoProfil = photoProfil;
     }
 
-    public Utilisateur(String _pseudo, int _itemAvatar)
+  /*  public Utilisateur(String _pseudo, int _itemAvatar)
     {
         this.pseudo = _pseudo;
-       this.itemAvatar = _itemAvatar;
-    }
 
-    public Utilisateur(int _idUtilisateur,String _nom,String _prenom, String _pseudo,String _mtp,String _avatar ,String _mail, String _date)
-    {
-        super();
-        this.idUtilisateur = _idUtilisateur;
-        this.nom = _nom;
-        this.prenom = _prenom;
-        this.pseudo = _pseudo;
-        this.avatar = _avatar;
-        this.mail = _mail;
-        this.mtp = _mtp;
-        this.dateNaissance = _date;
-    }
+    }*/
 
-    public Utilisateur(String _nom,String _prenom, String _pseudo, String _mtp,String _avatar,String _mail,String _date)
-    {
-        super();
-        this.nom = _nom;
-        this.prenom = _prenom;
-        this.pseudo = _pseudo;
-        this.avatar = _avatar;
-        this.mail = _mail;
-        this.mtp = _mtp;
-        this.dateNaissance = _date;
-    }
-
-    public Utilisateur(int _idUtilisateur, String _nom,String _prenom, String _pseudo)
+    public Utilisateur(int _idUtilisateur,String _nom,String _prenom, String _pseudo,String _mtp,String _photoProfil ,String _mail, String _date)
     {
         super();
         this.idUtilisateur = _idUtilisateur;
         this.nom = _nom;
         this.prenom = _prenom;
         this.pseudo = _pseudo;
+        this.photoProfil = _photoProfil;
+        this.mail = _mail;
+        this.mtp = _mtp;
+        this.dateNaissance = _date;
+    }
+
+    public Utilisateur(String _nom,String _prenom, String _pseudo, String _mtp,String _photoProfil,String _mail,String _date)
+    {
+        super();
+        this.nom = _nom;
+        this.prenom = _prenom;
+        this.pseudo = _pseudo;
+        this.photoProfil = _photoProfil;
+        this.mail = _mail;
+        this.mtp = _mtp;
+        this.dateNaissance = _date;
+    }
+
+    public Utilisateur(int _idUtilisateur, String _nom,String _prenom, String _pseudo,String _photoProfil)
+    {
+        super();
+        this.idUtilisateur = _idUtilisateur;
+        this.nom = _nom;
+        this.prenom = _prenom;
+        this.pseudo = _pseudo;
+        this.photoProfil = _photoProfil;
 
     }
 
@@ -187,6 +192,7 @@ public class Utilisateur  implements Parcelable{
         dest.writeString(pseudo);
         dest.writeString(mail);
         dest.writeString(mtp);
+        dest.writeString(photoProfil);
         dest.writeString(dateNaissance);
     }
     public static final Parcelable.Creator<Utilisateur> CREATOR = new Parcelable.Creator<Utilisateur>()
@@ -211,6 +217,7 @@ public class Utilisateur  implements Parcelable{
         this.pseudo = in.readString();
         this.mail = in.readString();
         this.mtp = in.readString();
+        this.photoProfil = in.readString();
         this.dateNaissance = in.readString();
     }
 
@@ -245,7 +252,7 @@ public class Utilisateur  implements Parcelable{
 
             String query = "insert into Utilisateur(nom,prenom,pseudo,mtp,photoProfil,mail,dateNaissance,actif) values ('"
                     + _utilisateur.getNom() + "','" + _utilisateur.getPrenom() + "','" + _utilisateur.getPseudo() + "','" + _utilisateur.getMtp() + "','"
-                    +_utilisateur.getAvatar()+"','"+ _utilisateur.getMail()+ "','" + _utilisateur.getDateNaissance() + "',1);";
+                    +_utilisateur.getPhotoProfil()+"','"+ _utilisateur.getMail()+ "','" + _utilisateur.getDateNaissance() + "',1);";
             Statement stmt = con.createStatement();
             stmt.executeUpdate(query);
 
@@ -263,13 +270,13 @@ public class Utilisateur  implements Parcelable{
         return okInsert;
     }
 
-    public List<Utilisateur> ListeUtilisateur()
+    public List<Utilisateur> ListeUtilisateur(String _idUtilisateur)
     {
         List<Utilisateur> users = new ArrayList<>();
 
         try {
 
-            String query = "Select idUtilisateur, nom, prenom, pseudo from Utilisateur ;";
+            String query = "Select idUtilisateur, nom, prenom, pseudo,photoProfil from Utilisateur where idUtilisateur !="+_idUtilisateur+" ;";
 
 
 
@@ -278,7 +285,7 @@ public class Utilisateur  implements Parcelable{
 
             while (rs.next()) {
 
-                users.add(new Utilisateur(rs.getInt(1),rs.getString(2), rs.getString(3),rs.getString(4)));
+                users.add(new Utilisateur(rs.getInt(1),rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5)));
             }
 
 
@@ -291,5 +298,32 @@ public class Utilisateur  implements Parcelable{
         return users ;
     }
 
+    public List<Utilisateur> ListeAmis(String _idUtilisateur)
+    {
+        List<Utilisateur> users = new ArrayList<>();
+
+        try {
+
+            String query = " Select u.idUtilisateur, nom, prenom, pseudo,photoProfil from Utilisateur u inner join EtreAmis e on u.idUtilisateur = e.idAmi where e.idUtilisateur = "+_idUtilisateur+";";
+
+
+
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+
+                users.add(new Utilisateur(rs.getInt(1),rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5)));
+            }
+
+
+
+        }catch (SQLException se)
+        {
+
+            Log.e("error here 1 : ******* ", "######################################" + se.getMessage());
+        }
+        return users ;
+    }
 
 }

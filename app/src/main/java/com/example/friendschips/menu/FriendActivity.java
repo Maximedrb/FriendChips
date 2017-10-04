@@ -77,34 +77,6 @@ public class FriendActivity extends AppCompatActivity {
 
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
-
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if(position == 1)
-                {
-                    //c'est ici qu'il faut  poser la methode initListView.
-                   // gestion.InitListEvent(gestion.getView());
-
-                }else if(position == 2)
-                {
-                    gestionUtilisateurs.InitListEvent(gestionUtilisateurs.getView());
-                }
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-
-
         setupViewPager(viewPager);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);

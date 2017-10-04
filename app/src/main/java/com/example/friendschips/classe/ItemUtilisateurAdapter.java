@@ -1,7 +1,11 @@
 package com.example.friendschips.classe;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +53,13 @@ public class ItemUtilisateurAdapter extends ArrayAdapter<Utilisateur> {
 
         //il ne reste plus qu'à remplir notre vue
         viewHolder.itemPseudo.setText(item.getPseudo());
-        viewHolder.itemAvatar.setImageDrawable(new ColorDrawable(item.getItemAvatar()));
+        if(item.getPhotoProfil()!= null)
+        {
+            viewHolder.itemAvatar.setImageBitmap(StringToBitmap(item.getPhotoProfil()));
+        }else{
+            viewHolder.itemAvatar.setImageDrawable(new ColorDrawable(Color.parseColor("#FFFFFF")));
+        }
+
 
         return convertView;
     }
@@ -58,5 +68,18 @@ public class ItemUtilisateurAdapter extends ArrayAdapter<Utilisateur> {
         public TextView itemPseudo;
         public ImageView itemAvatar;
 
+    }
+
+    public static Bitmap StringToBitmap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch (NullPointerException e) {
+            e.getMessage();
+            return null;
+        } catch (OutOfMemoryError e) {
+            return null;
+        }
     }
 }

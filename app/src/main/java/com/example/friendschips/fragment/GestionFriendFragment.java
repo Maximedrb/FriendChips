@@ -19,6 +19,7 @@ import com.example.friendschips.classe.ItemEvent;
 import com.example.friendschips.classe.ItemEventAdapter;
 import com.example.friendschips.classe.ItemFriend;
 import com.example.friendschips.classe.ItemFriendAdapter;
+import com.example.friendschips.classe.ItemUtilisateurAdapter;
 import com.example.friendschips.classe.Utilisateur;
 import com.example.friendschips.friendschips.R;
 
@@ -35,10 +36,11 @@ public class GestionFriendFragment extends Fragment{
 
 
 
-    private List<ItemFriend> items ;
-
+    private List<Utilisateur> items ;
+    private  ListView listItem;
     private Connexion con;
     private Utilisateur user;
+    private ItemFriendAdapter adapter;
 
 
     @Override
@@ -54,12 +56,19 @@ public class GestionFriendFragment extends Fragment{
 
 
 
-        ListView listItem = (ListView)viewGestion.findViewById(R.id.listItemFriend);
+        con = new Connexion();
+        Intent i = getActivity().getIntent();
+        user = i.getExtras().getParcelable("userConnecter");
 
-        List<ItemFriend> items = genererItems();
-        items = genererItems();
+        user.setCon(con.getCon());
 
-        ItemFriendAdapter adapter  = new ItemFriendAdapter(viewGestion.getContext(),true, items);
+
+        listItem = (ListView)viewGestion.findViewById(R.id.listItemFriend);
+
+        //items = genererItems(viewGestion);
+        items = user.ListeAmis(String.valueOf(user.getIdUtilisateur()));
+
+        adapter  = new ItemFriendAdapter(viewGestion.getContext(),true, items);
         listItem.setAdapter(adapter);
 
 
@@ -71,14 +80,5 @@ public class GestionFriendFragment extends Fragment{
 
     }
 
-    private List<ItemFriend> genererItems(){
-        List<ItemFriend> items = new ArrayList<ItemFriend>();
-        items.add(new ItemFriend(Color.BLACK, "Florent",false));
-        items.add(new ItemFriend(Color.BLUE, "Kevin",false));
-        items.add(new ItemFriend(Color.GREEN, "Logan",false));
-        items.add(new ItemFriend(Color.RED, "Mathieu",false));
-        items.add(new ItemFriend(Color.GRAY, "Willy",false));
-        return items;
-    }
 
 }

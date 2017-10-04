@@ -24,10 +24,11 @@
 
 
             <com.github.siyamed.shapeimageview.RoundedImageView
+                android:id="@+id/rivPhotoProfil"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:src="@drawable/imageprofil"
+                android:src="@drawable/sansphotoprofil"
                 app:siRadius="6dp"
                 app:siBorderWidth="6dp"
                 app:siBorderColor="#125688"

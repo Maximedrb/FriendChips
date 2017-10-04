@@ -1,7 +1,10 @@
 package com.example.friendschips.classe;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +20,12 @@ import java.util.List;
 /**
  * Created by MaximeDrx on 15/06/2017.
  */
-public class ItemFriendAdapter extends ArrayAdapter<ItemFriend> {
+public class ItemFriendAdapter extends ArrayAdapter<Utilisateur> {
 
     private boolean invite;
 
     //tweets est la liste des models à afficher
-    public ItemFriendAdapter(Context context,boolean _invite,List<ItemFriend> items) {
+    public ItemFriendAdapter(Context context,boolean _invite,List<Utilisateur> items) {
         super(context, 0, items);
         invite = _invite;
     }
@@ -51,11 +54,11 @@ public class ItemFriendAdapter extends ArrayAdapter<ItemFriend> {
         }
 
         //getItem(position) va récupérer l'item [position] de la List<Tweet> tweets
-        ItemFriend item = getItem(position);
+        Utilisateur item = getItem(position);
 
         //il ne reste plus qu'à remplir notre vue
-        viewHolder.itemPseudo.setText(item.getItemPseudo());
-        viewHolder.itemAvatar.setImageDrawable(new ColorDrawable(item.getItemAvatar()));
+        viewHolder.itemPseudo.setText(item.getPseudo());
+        viewHolder.itemAvatar.setImageBitmap(StringToBitmap(item.getPhotoProfil()));
         if(invite)
         {
             viewHolder.itemInvite.setChecked(item.isItemInvite());
@@ -67,5 +70,18 @@ public class ItemFriendAdapter extends ArrayAdapter<ItemFriend> {
         public TextView itemPseudo;
         public ImageView itemAvatar;
         public CheckBox itemInvite;
+    }
+
+    public static Bitmap StringToBitmap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch (NullPointerException e) {
+            e.getMessage();
+            return null;
+        } catch (OutOfMemoryError e) {
+            return null;
+        }
     }
 }

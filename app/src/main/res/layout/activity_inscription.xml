@@ -56,7 +56,7 @@
             android:layout_height="173dp"
             android:layout_gravity="center"
             android:layout_marginTop="0dp"
-            android:src="@drawable/imageprofil"
+            android:src="@drawable/sansphotoprofil"
             app:siRadius="6dp"
             app:siBorderWidth="6dp"
             app:siBorderColor="#125688"

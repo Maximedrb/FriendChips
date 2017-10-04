@@ -103,9 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
                         if (rs.next()) {
 
-                            System.out.println(rs.getString(6));
-
-                            user = new Utilisateur(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getObject(6),rs.getString(7),rs.getString(8));
+                            user = new Utilisateur(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
 
                             query = "select * from Connexion  where idUtilisateur = " + user.getIdUtilisateur() + "; ";
 

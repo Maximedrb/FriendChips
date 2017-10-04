@@ -60,7 +60,7 @@ public class AddBirthdayFragment extends Fragment {
         final EditText etMessageEvt = (EditText)view.findViewById(R.id.etMessageEvtB);
         Intent i = getActivity().getIntent();
         user = i.getExtras().getParcelable("userConnecter");
-
+        user.setCon(con.getCon());
         event.setCon(con.getCon());
 
         edtDateDebut = (EditText)view.findViewById(R.id.edtDateDebutB);
@@ -192,7 +192,7 @@ public class AddBirthdayFragment extends Fragment {
                 event.AjouterEvenement("Birth",newEvnt,Color.parseColor("#FF20D1BA"));
 
                 ListView listItem = (ListView) viewPopInviteFriend.findViewById(R.id.listInviteFriend);
-                List<ItemFriend> items = genererItems();
+                List<Utilisateur> items = user.ListeAmis(String.valueOf(user.getIdUtilisateur()));
 
                 ItemFriendAdapter adapter = new ItemFriendAdapter(viewPopInviteFriend.getContext(), true, items);
                 listItem.setAdapter(adapter);
